@@ -1,0 +1,16 @@
+{
+  "name": "vue-c3",
+  "version": "1.0.0",
+  "description": "vue-c3 is a reusable vue component for c3 charts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "c3",
+    "d3"
+  ],
+  "author": "“Christoph <“chryb.q@gmail.com”> (http://www.chryb.me)",
+  "license": "MIT"
+}
