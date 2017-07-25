@@ -12,7 +12,7 @@ npm install --save vue-c3
 
 In your vue-component:
 
-```javascript
+```vue
 <template>
   <div>
     <vue-c3 :handler="handler"></vue-c3>
