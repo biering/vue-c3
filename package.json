@@ -7,7 +7,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/chryb/vueup.git"
+    "url": "https://github.com/chryb/vue-c3.git"
   },
   "main": "dist/index.js",
   "scripts": {
