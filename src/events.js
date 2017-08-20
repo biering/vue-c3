@@ -1,5 +1,6 @@
 export const INIT          = 'INIT'
 export const LOAD          = 'LOAD'
+export const UNLOAD        = 'UNLOAD'
 export const UNSELECT      = 'UNSELECT'
 export const SELECT        = 'SELECT'
 export const ADD_REGION    = 'ADD_REGION'

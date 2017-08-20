@@ -14,7 +14,6 @@
 
     mounted () {
 
-
       if (this.handler) {
         this.handler.$on(events.INIT, (options) => {
           // destroy existing?
@@ -24,9 +23,11 @@
         })
 
         this.handler.$on(events.LOAD, (data) => {
-          if (this.$chart) {
-            this.$chart.load(data)
-          }
+          if (this.$chart) this.$chart.load(data)
+        })
+
+        this.handler.$on(events.UNLOAD, (data) => {
+          if (this.$chart) this.$chart.unload(data)
         })
 
         this.handler.$on(events.UNSELECT, () => {
@@ -48,9 +49,7 @@
         })
 
         this.handler.$on(events.CLEAR_REGIONS, (regions) => {
-          if (this.$chart) {
-            this.$chart.regions([])
-          }
+          if (this.$chart) this.$chart.regions([])
         })
       }
 

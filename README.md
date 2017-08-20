@@ -68,6 +68,44 @@ To initialize the graph call:
 </script>
 ```
 
+##### Load
+
+Loads data to the chart. For more information see [c3#load](http://c3js.org/reference.html#api-load).
+
+```
+this.handler.$emit('LOAD', data)
+```
+
+##### Unload
+
+Unloads data from the chart. For more information see [c3#unload](http://c3js.org/reference.html#api-unload).
+
+```
+this.handler.$emit('UNLOAD', data)
+```
+
+##### Unselect
+
+Deselect all selected points
+
+```
+this.handler.$emit('UNSELECT')
+```
+
+##### Add Region
+
+```
+this.handler.$emit('ADD_REGION', region)
+```
+
+##### Clear Regions
+
+Clears all regions from the chart.
+
+```
+this.handler.$emit('CLEAR_REGIONS')
+```
+
 For the documentation about `c3.generate` see [http://c3js.org/reference.html](http://c3js.org/reference.html).
 
 ## License
