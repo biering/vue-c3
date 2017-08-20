@@ -144,6 +144,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           _this.$chart.select(ids, indices, resetOthers);
         }
       });
+
+      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["e" /* ADD_REGION */], function (regions) {
+        if (_this.$chart) {
+          _this.$chart.regions.add(regions);
+        }
+      });
+
+      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["f" /* CLEAR_REGIONS */], function (regions) {
+        if (_this.$chart) {
+          _this.$chart.regions([]);
+        }
+      });
     }
   }
 });
@@ -157,10 +169,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LOAD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return UNSELECT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return SELECT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return ADD_REGION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return CLEAR_REGIONS; });
 var INIT = 'INIT';
 var LOAD = 'LOAD';
 var UNSELECT = 'UNSELECT';
 var SELECT = 'SELECT';
+var ADD_REGION = 'ADD_REGION';
+var CLEAR_REGIONS = 'CLEAR_REGIONS';
 
 /***/ }),
 /* 3 */

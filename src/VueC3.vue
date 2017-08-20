@@ -40,6 +40,18 @@
             this.$chart.select(ids, indices, resetOthers)
           }
         })
+
+        this.handler.$on(events.ADD_REGION, (regions) => {
+          if (this.$chart) {
+            this.$chart.regions.add(regions)
+          }
+        })
+
+        this.handler.$on(events.CLEAR_REGIONS, (regions) => {
+          if (this.$chart) {
+            this.$chart.regions([])
+          }
+        })
       }
 
     }
