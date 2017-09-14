@@ -61,7 +61,7 @@ To initialize the graph call:
              ['data1', 2, 4, 1, 5, 2, 1],
              ['data2', 7, 2, 4, 6, 10, 1]
            ],
-           ... 
+           ...
         }
       }
       this.handler.$emit('INIT', options)
@@ -106,6 +106,14 @@ Clears all regions from the chart.
 
 ```
 this.handler.$emit('CLEAR_REGIONS')
+```
+
+##### Resize
+
+Triggers a resize event on the chart.
+
+```
+this.handler.$emit('RESIZE')
 ```
 
 For the documentation about `c3.generate` see [http://c3js.org/reference.html](http://c3js.org/reference.html).

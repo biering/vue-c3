@@ -51,6 +51,10 @@
         this.handler.$on(events.CLEAR_REGIONS, (regions) => {
           if (this.$chart) this.$chart.regions([])
         })
+
+        this.handler.$on(events.RESIZE, () => {
+          if(this.$chart) this.$chart.resize()
+        })
       }
 
     }
