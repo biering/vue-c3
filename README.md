@@ -44,7 +44,7 @@ In your vue-component:
 
 You can use the handler to send events to the `vue-c3` component:
 
-To initialize the graph call:
+To initialize the c3 chart call:
 
 ```vue
 
@@ -62,56 +62,24 @@ To initialize the graph call:
         ],
         ...
       }
-      this.handler.$emit('INIT', options)
+      this.handler.$emit('init', options)
     }
   }
 </script>
 ```
 
-##### Load
+### Events
 
-Loads data to the chart. For more information see [c3#load](http://c3js.org/reference.html#api-load).
+An overview of all events which can be submitted to the `.$emit(name, ..)` method:
 
-```
-this.handler.$emit('LOAD', data)
-```
+|Name|Parameters|Description|
+|:--:|:--:|:--|
+|`init`|[options](http://c3js.org/reference.html)|Use this method before anything else to generate the chart|
+|`destroy`|-|Used to destroy the chart|
+|`dispatch`|[api](http://c3js.org/reference.html#api)|Access the c3 chart object directly to use the api|
 
-##### Unload
-
-Unloads data from the chart. For more information see [c3#unload](http://c3js.org/reference.html#api-unload).
-
-```
-this.handler.$emit('UNLOAD', data)
-```
-
-##### Unselect
-
-Deselect all selected points
-
-```
-this.handler.$emit('UNSELECT')
-```
-
-##### Add Region
-
-```
-this.handler.$emit('ADD_REGION', region)
-```
-
-##### Clear Regions
-
-Clears all regions from the chart.
-
-```
-this.handler.$emit('CLEAR_REGIONS')
-```
-
-For the documentation about `c3.generate` see [http://c3js.org/reference.html](http://c3js.org/reference.html).
+For more information about c3 see the documentation [http://c3js.org/reference.html](http://c3js.org/reference.html).
 
 ## License
 
 Copyright (c) 2017 Christoph Biering, Licensed under the [MIT license](./LICENSE).
-
----
-
-PACKAGE IN WORK

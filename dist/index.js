@@ -115,45 +115,79 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'vuec3',
 
-  props: ['handler'],
+  props: {
+    handler: {
+      required: true,
+      type: Object
+    }
+  },
+
+  data: function data() {
+    return {
+      $chart: null
+    };
+  },
+
+
+  methods: {
+    destroyChart: function destroyChart() {
+      this.$chart = this.$chart.destroy();
+    }
+  },
 
   mounted: function mounted() {
     var _this = this;
 
     if (this.handler) {
-      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["a" /* INIT */], function (options) {
+
+      this.handler.$on('init', function () {
+        var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+        if (_this.$chart) {
+          _this.destroyChart();
+        }
 
         options.bindto = _this.$el;
         _this.$chart = __WEBPACK_IMPORTED_MODULE_0_c3___default.a.generate(options);
       });
 
-      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["b" /* LOAD */], function (data) {
+      this.handler.$on('destroy', function () {
+        _this.destroyChart();
+      });
+
+      this.handler.$on('dispatch', function (cb) {
+        if (cb && _this.$chart) {
+          cb.call(null, _this.$chart);
+        }
+      });
+
+      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["a" /* LOAD */], function (data) {
         if (_this.$chart) _this.$chart.load(data);
       });
 
-      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["c" /* UNLOAD */], function (data) {
+      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["b" /* UNLOAD */], function (data) {
         if (_this.$chart) _this.$chart.unload(data);
       });
 
-      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["d" /* UNSELECT */], function () {
+      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["c" /* UNSELECT */], function () {
         if (_this.$chart) {
           _this.$chart.unselect();
         }
       });
 
-      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["e" /* SELECT */], function (ids, indices, resetOthers) {
+      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["d" /* SELECT */], function (ids, indices, resetOthers) {
         if (_this.$chart) {
           _this.$chart.select(ids, indices, resetOthers);
         }
       });
 
-      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["f" /* ADD_REGION */], function (regions) {
+      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["e" /* ADD_REGION */], function (regions) {
         if (_this.$chart) {
           _this.$chart.regions.add(regions);
         }
       });
 
-      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["g" /* CLEAR_REGIONS */], function (regions) {
+      this.handler.$on(__WEBPACK_IMPORTED_MODULE_1__events__["f" /* CLEAR_REGIONS */], function (regions) {
         if (_this.$chart) _this.$chart.regions([]);
       });
     }
@@ -165,13 +199,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return INIT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LOAD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return UNLOAD; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return UNSELECT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return SELECT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return ADD_REGION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return CLEAR_REGIONS; });
+/* unused harmony export INIT */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LOAD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return UNLOAD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return UNSELECT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return SELECT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return ADD_REGION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return CLEAR_REGIONS; });
 var INIT = 'INIT';
 var LOAD = 'LOAD';
 var UNLOAD = 'UNLOAD';
