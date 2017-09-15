@@ -78,6 +78,8 @@ An overview of all events which can be submitted to the `.$emit(name, ..)` metho
 |`destroy`|-|Used to destroy the chart|
 |`dispatch`|[api](http://c3js.org/reference.html#api)|Access the c3 chart object directly to use the api|
 
+For example you can use `this.handler.$emit('dispatch', (chart) => chart.resize())` to resize the chart.
+
 For more information about c3 see the documentation [http://c3js.org/reference.html](http://c3js.org/reference.html).
 
 ## License
