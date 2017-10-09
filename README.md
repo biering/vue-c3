@@ -56,10 +56,13 @@ To initialize the c3 chart call:
     mounted () {
       // to init the graph call:
       const options = {
-        columns: [
-          ['data1', 2, 4, 1, 5, 2, 1],
-          ['data2', 7, 2, 4, 6, 10, 1]
-        ],
+        data: {
+          columns: [
+            ['data1', 2, 4, 1, 5, 2, 1],
+            ['data2', 7, 2, 4, 6, 10, 1]
+          ],
+          ...
+        }, 
         ...
       }
       this.handler.$emit('init', options)
