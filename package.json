@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/chryb/vue-c3.git"
   },
+  "bugs": {
+    "url": "https://github.com/chryb/vue-c3/issues"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
