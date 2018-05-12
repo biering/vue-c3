@@ -62,7 +62,7 @@ To initialize the c3 chart call:
             ['data2', 7, 2, 4, 6, 10, 1]
           ],
           ...
-        }, 
+        },
         ...
       }
       this.handler.$emit('init', options)
@@ -87,4 +87,4 @@ For more information about c3 see the documentation [http://c3js.org/reference.h
 
 ## License
 
-Copyright (c) 2017 Christoph Biering, Licensed under the [MIT license](./LICENSE).
+Copyright (c) 2017 - 2018 Christoph Biering, Licensed under the [MIT license](./LICENSE).
