@@ -1,6 +1,6 @@
 {
   "name": "vue-c3",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "vue-c3 is a reusable vue component for c3 charts",
   "author": "“Christoph <chryb.q@gmail.com> (http://www.chryb.me)",
   "license": "MIT",
@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/chryb/vue-c3/issues"
   },
-  "main": "dist/index.js",
+  "main": "dist/vue-c3.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
