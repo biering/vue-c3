@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/chryb/vue-c3/issues"
   },
-  "main": "dist/vue-c3.js",
+  "main": "dist/vue-c3.min.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
