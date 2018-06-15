@@ -1,10 +1,13 @@
 {
   "name": "vue-c3",
-  "version": "1.2.5",
+  "version": "1.2.8",
   "description": "vue-c3 is a reusable vue component for c3 charts",
   "author": "“Christoph <chryb.q@gmail.com> (http://www.chryb.me)",
   "license": "MIT",
   "private": false,
+  "main": "dist/vue-c3.cjs.js",
+  "module": "dist/vue-c3.esm.js",
+  "browser": "dist/vue-c3.umd.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/chryb/vue-c3.git"
@@ -12,9 +15,8 @@
   "bugs": {
     "url": "https://github.com/chryb/vue-c3/issues"
   },
-  "main": "dist/vue-c3.min.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "rollup -c"
   },
   "keywords": [
     "vue",
@@ -24,23 +26,18 @@
     "graph"
   ],
   "peerDependencies": {
-    "vue": "^2.0.0"
+    "vue": "^2.0.0",
+    "c3": "^0.5.4"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.46",
     "@babel/preset-env": "^7.0.0-beta.46",
-    "babel-loader": "^8.0.0-beta.2",
-    "cross-env": "^5.1.5",
-    "css-loader": "^0.28.11",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1",
-    "vue-loader": "^15.0.10",
-    "vue-template-compiler": "^2.0.0",
-    "webpack": "^4.8.2",
-    "webpack-cli": "^2.1.3",
-    "webpack-dev-server": "^3.1.4"
-  },
-  "dependencies": {
-    "c3": "^0.5.4"
+    "rollup": "^0.60.7",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-scss": "^0.4.0",
+    "rollup-plugin-uglify": "^4.0.0",
+    "rollup-plugin-vue2": "^0.8.0",
+    "vue-template-compiler": "^2.0.0"
   }
 }

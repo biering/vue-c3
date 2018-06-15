@@ -10,6 +10,9 @@
 
 ```bash
 npm install --save vue-c3
+
+# and if it's not already installed:
+npm install --save c3
 ```
 
 ## Usage
