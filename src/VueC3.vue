@@ -32,13 +32,10 @@
     },
 
     mounted () {
-
       if (this.handler) {
 
         this.handler.$on(events.INIT, (options = {}) => {
-          if (this.$chart) {
-            this.destroyChart()
-          }
+          this.destroyChart()
 
           options.bindto = this.$el
           this.$chart = c3.generate(options)
