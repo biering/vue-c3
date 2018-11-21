@@ -17,47 +17,47 @@
       }
     },
 
-    data () {
+    data: function () {
       return {
         $chart: null
       }
     },
 
     methods: {
-      destroyChart () {
+      destroyChart: function () {
         if (this.$chart) {
           this.$chart = this.$chart.destroy()
         }
       }
     },
 
-    mounted () {
+    mounted: function () {
       if (this.handler) {
 
-        this.handler.$on(events.INIT, (options = {}) => {
+        this.handler.$on(events.INIT, function() {
           this.destroyChart()
 
+          let options = {};
           options.bindto = this.$el
           this.$chart = c3.generate(options)
         })
 
 
-        this.handler.$on(events.DESTROY, () => {
+        this.handler.$on(events.DESTROY, function() {
           this.destroyChart()
         })
 
 
-        this.handler.$on(events.DISPATCH, (cb) => {
+        this.handler.$on(events.DISPATCH, function(cb) {
           if (cb && this.$chart) {
             cb.call(null, this.$chart)
           }
         })
 
       }
-
     },
 
-    beforeDestroy () {
+    beforeDestroy: function () {
       this.destroyChart()
     }
   }
