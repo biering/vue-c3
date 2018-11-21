@@ -34,10 +34,12 @@
     mounted: function () {
       if (this.handler) {
 
-        this.handler.$on(events.INIT, function() {
+        this.handler.$on(events.INIT, function(options) {
           this.destroyChart()
 
-          let options = {};
+          if (!options) {
+            options = {};
+          }
           options.bindto = this.$el
           this.$chart = c3.generate(options)
         })
