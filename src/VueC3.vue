@@ -28,33 +28,32 @@
         if (this.$chart) {
           this.$chart = this.$chart.destroy()
         }
+      },
+      initChart: function (options) {
+        if (this.$chart) {
+          this.destroyChart();
+        }
+        if (!options) {
+          options = {};
+        }
+        options.bindto = this.$el;
+        this.$chart = c3.generate(options);
+      },
+      dispatchChart: function (cb) {
+        if (cb && this.$chart) {
+          cb.call(null, this.$chart);
+        }
       }
     },
 
     mounted: function () {
       if (this.handler) {
 
-        this.handler.$on(events.INIT, function(options) {
-          this.destroyChart()
+        this.handler.$on(INIT, this.initChart);
 
-          if (!options) {
-            options = {};
-          }
-          options.bindto = this.$el
-          this.$chart = c3.generate(options)
-        })
+        this.handler.$on(DESTROY, this.destroyChart);
 
-
-        this.handler.$on(events.DESTROY, function() {
-          this.destroyChart()
-        })
-
-
-        this.handler.$on(events.DISPATCH, function(cb) {
-          if (cb && this.$chart) {
-            cb.call(null, this.$chart)
-          }
-        })
+        this.handler.$on(DISPATCH, this.dispatchChart);
 
       }
     },
