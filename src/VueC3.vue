@@ -29,6 +29,7 @@
           this.$chart = this.$chart.destroy()
         }
       },
+
       initChart: function (options) {
         if (this.$chart) {
           this.destroyChart();
@@ -39,6 +40,7 @@
         options.bindto = this.$el;
         this.$chart = c3.generate(options);
       },
+
       dispatchChart: function (cb) {
         if (cb && this.$chart) {
           cb.call(null, this.$chart);
@@ -48,13 +50,9 @@
 
     mounted: function () {
       if (this.handler) {
-
         this.handler.$on(INIT, this.initChart);
-
         this.handler.$on(DESTROY, this.destroyChart);
-
         this.handler.$on(DISPATCH, this.dispatchChart);
-
       }
     },
 
