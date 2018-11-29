@@ -17,47 +17,48 @@
       }
     },
 
-    data () {
+    data: function () {
       return {
         $chart: null
       }
     },
 
     methods: {
-      destroyChart () {
+      destroyChart: function () {
         if (this.$chart) {
           this.$chart = this.$chart.destroy()
+        }
+      },
+      initChart: function (options) {
+        if (this.$chart) {
+          this.destroyChart();
+        }
+        if (!options) {
+          options = {};
+        }
+        options.bindto = this.$el;
+        this.$chart = c3.generate(options);
+      },
+      dispatchChart: function (cb) {
+        if (cb && this.$chart) {
+          cb.call(null, this.$chart);
         }
       }
     },
 
-    mounted () {
+    mounted: function () {
       if (this.handler) {
 
-        this.handler.$on(events.INIT, (options = {}) => {
-          this.destroyChart()
+        this.handler.$on(INIT, this.initChart);
 
-          options.bindto = this.$el
-          this.$chart = c3.generate(options)
-        })
+        this.handler.$on(DESTROY, this.destroyChart);
 
-
-        this.handler.$on(events.DESTROY, () => {
-          this.destroyChart()
-        })
-
-
-        this.handler.$on(events.DISPATCH, (cb) => {
-          if (cb && this.$chart) {
-            cb.call(null, this.$chart)
-          }
-        })
+        this.handler.$on(DISPATCH, this.dispatchChart);
 
       }
-
     },
 
-    beforeDestroy () {
+    beforeDestroy: function () {
       this.destroyChart()
     }
   }
