@@ -17,48 +17,46 @@ staticRenderFns: [],
       }
     },
 
-    data () {
+    data: function () {
       return {
         $chart: null
       }
     },
 
     methods: {
-      destroyChart () {
-        this.$chart = this.$chart.destroy();
-      }
-    },
+      destroyChart: function () {
+        if (this.$chart) {
+          this.$chart = this.$chart.destroy();
+        }
+      },
 
-    mounted () {
-
-      if (this.handler) {
-
-        this.handler.$on(INIT, (options = {}) => {
-          if (this.$chart) {
-            this.destroyChart();
-          }
-
-          options.bindto = this.$el;
-          this.$chart = c3.generate(options);
-        });
-
-
-        this.handler.$on(DESTROY, () => {
+      initChart: function (options) {
+        if (this.$chart) {
           this.destroyChart();
-        });
+        }
+        if (!options) {
+          options = {};
+        }
+        options.bindto = this.$el;
+        this.$chart = c3.generate(options);
+      },
 
-
-        this.handler.$on(DISPATCH, (cb) => {
-          if (cb && this.$chart) {
-            cb.call(null, this.$chart);
-          }
-        });
-
+      dispatchChart: function (cb) {
+        if (cb && this.$chart) {
+          cb.call(null, this.$chart);
+        }
       }
-
     },
 
-    beforeDestroy () {
+    mounted: function () {
+      if (this.handler) {
+        this.handler.$on(INIT, this.initChart);
+        this.handler.$on(DESTROY, this.destroyChart);
+        this.handler.$on(DISPATCH, this.dispatchChart);
+      }
+    },
+
+    beforeDestroy: function () {
       this.destroyChart();
     }
   };

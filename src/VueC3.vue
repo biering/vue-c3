@@ -50,9 +50,9 @@
 
     mounted: function () {
       if (this.handler) {
-        this.handler.$on(INIT, this.initChart);
-        this.handler.$on(DESTROY, this.destroyChart);
-        this.handler.$on(DISPATCH, this.dispatchChart);
+        this.handler.$on(events.INIT, this.initChart);
+        this.handler.$on(events.DESTROY, this.destroyChart);
+        this.handler.$on(events.DISPATCH, this.dispatchChart);
       }
     },
 
